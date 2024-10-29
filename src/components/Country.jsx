@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
 
-const Country = ({country}) => {
+const Country = ({country , isDark}) => {
     const {flags, name, population, region, capital, cca3} =country;
 
     const navigate = useNavigate()
@@ -10,7 +10,7 @@ const Country = ({country}) => {
     }
 
   return (
-    <div key={cca3} className="country border shadow-md rounded-md overflow-hidden hover:scale-105 transition-all duration-300 ease-in-out transform" onClick={countryDetails}>
+    <div key={cca3} className={`country border shadow-md rounded-md overflow-hidden hover:scale-105 transition-all duration-300 ease-in-out transform ${isDark ? 'bg-[#2b3945]' : "" } ${isDark ? 'text-white' : "" }`} onClick={countryDetails}>
 
         <img src={flags.png} alt={`${name.common} flag`} className="min-w-full h-40 object-fill mb-4 " />
         <div className='p-4'>

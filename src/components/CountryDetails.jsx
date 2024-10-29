@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { IoIosArrowRoundBack } from "react-icons/io"
 import Borders from "./Borders"
 
-const CountryDetails = () => {
+const CountryDetails = ({isDark}) => {
 //   const { isDark } = useAppContext()
   const [country, setCountry] = useState(null)
   const navigate = useNavigate()
@@ -28,12 +28,12 @@ const CountryDetails = () => {
   }, [id])
 
   return (
-    <div className="w-full">
+    <div className={`w-full  ${isDark ? 'text-white' : "" }`}>
       {country ? (
         <section className="w-4/5 max-w-6xl mx-auto">
           <div
             className={`cursor-pointer w-28 p-2 text-center mb-8 rounded-lg shadow-lg flex justify-center gap-2 
-                {
+                ${
               isDark ? "bg-[#2B3945]" : "bg-[#ffff]"
             }`}
             onClick={handleBackBtn}
@@ -104,7 +104,7 @@ const CountryDetails = () => {
                   </span>
                 </div>
               </div >
-              <Borders borders={country.borders} />
+              <Borders borders={country.borders} isDark={isDark} />
             </div>
           </div>
         </section>

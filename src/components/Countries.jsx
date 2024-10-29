@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Country from './Country';
 import Search from './Search';
 
-const Countries = () => {
+const Countries = ({isDark}) => {
 const [countries, setCountries] = useState([]);
 const [searchQuery, setSearchQuery] = useState('');
 const [regionValue , setRegionValue] = useState('');
@@ -33,12 +33,12 @@ const filteredCountries = countries.filter((country)=>{
 
 
 return (
-    <div className='w-[100%]'>
-        <Search setSearchQuery={setSearchQuery} setRegionValue={setRegionValue} setSubRegionValue={setSubRegionValue} countries = {countries} setSortOption = {setSortOption}/>
+    <div className={`w-[100%] ${isDark ? 'bg-[#121212]' : "" } ${isDark ? 'text-white' : "" } `}>
+        <Search setSearchQuery={setSearchQuery} setRegionValue={setRegionValue} setSubRegionValue={setSubRegionValue} countries = {countries} setSortOption = {setSortOption} isDark={isDark} />
         <div className='mx-auto grid grid-cols-1 gap-12 mt-[50px] md:grid-cols-2 lg:grid-cols-4 w-[65%]'>
             {
                filteredCountries.map((country)=>
-                <Country key={country.cca3} country={country}/>
+                <Country key={country.cca3} country={country} isDark={isDark} />
                )
             }
         </div>

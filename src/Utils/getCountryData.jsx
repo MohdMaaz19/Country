@@ -11,8 +11,6 @@ const getCountryData = () => {
       const data = await resp.json()
       setCountryData(data)
 
-      const uniqueRegions = [...new Set(data.map((country) => country.region))]
-      setRegions(uniqueRegions)
     }
     fetchCountries()
   }, [])

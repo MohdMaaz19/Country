@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoSearchSharp } from "react-icons/io5";
 
-const Search = ({ setSearchQuery, setRegionValue, setSubRegionValue, countries, setSortOption }) => {
+const Search = ({ setSearchQuery, setRegionValue, setSubRegionValue, countries, setSortOption, isDark }) => {
 
     const [region, setRegion] = useState('');
     const [listSubRegion, setListSubRegion] =useState([])
@@ -35,20 +35,20 @@ const Search = ({ setSearchQuery, setRegionValue, setSubRegionValue, countries, 
 
 
     return (
-        <div className='w-full mt-7 '>
+        <div className={`w-full mt-7 ${isDark ? 'bg-[#121212]' : "" } ${isDark ? 'text-white' : "" }` }>
             <div className='w-[65%] mx-auto flex flex-wrap justify-between items-center gap-4'>
 
-                <div className='flex shadow-lg h-[50px] rounded-lg'>
+                <div className={`flex shadow-lg h-[50px] rounded-lg ${isDark ? 'bg-[#2b3945]' : "" } ${isDark ? 'text-white' : "" }`}>
                         <IoSearchSharp className='ml-2 mt-4 mr-3 opacity-50' />
                         <input
                             type="text"
                             placeholder='Search for a country'
-                            className='max-w-[80%] outline-none'
+                            className={`max-w-[80%] outline-none ${isDark ? 'bg-[#2b3945]' : "" } ${isDark ? 'text-white' : "" }`}
                             onChange={handleInputChange}
                         />
                 </div>
 
-                <div className="block appearance-none shadow-lg rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <div className={`block appearance-none shadow-lg rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 ${isDark ? 'bg-[#2b3945]' : "" } ${isDark ? 'text-white' : "" }`}>
                     <select
                         name="sort"
                         id="sort"
@@ -63,7 +63,7 @@ const Search = ({ setSearchQuery, setRegionValue, setSubRegionValue, countries, 
                     </select>
                 </div>
                 
-                    <div className='block appearance-none shadow-lg rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'>
+                    <div className={`block appearance-none shadow-lg rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 ${isDark ? 'bg-[#2b3945]' : "" } ${isDark ? 'text-white' : "" }`}>
                         <select name="subregion" id="subregion" onChange={handleSubRegionChange} className=" h-[35px] rounded-lg bg-transparent outline-none"
                         >
                             <option value="select">Select a subregion</option>
@@ -74,7 +74,7 @@ const Search = ({ setSearchQuery, setRegionValue, setSubRegionValue, countries, 
                     </div>
              
 
-                    <div className="block appearance-none shadow-lg rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <div className={`block appearance-none shadow-lg rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 ${isDark ? 'bg-[#2b3945]' : "" } ${isDark ? 'text-white' : "" }`}>
                         <select
                             name="region"
                             id="region"
