@@ -18,7 +18,7 @@ useEffect(()=>{
 },[])
 
 const filteredCountries = countries.filter((country)=>{
-    const isInSearch = searchQuery === '' || country.name.common.toLowerCase().includes(searchQuery.toLowerCase());
+    const isInSearch = searchQuery === '' || country.name.common.toLowerCase()===(searchQuery.toLowerCase());
     const isInRegion = regionValue === '' || (country.region && country.region.toLowerCase() === regionValue.toLowerCase());
     const isInSubRegion = subRegionValue === '' || (country.subregion && country.subregion.toLowerCase() === subRegionValue.toLowerCase());
     return isInSearch && isInRegion && isInSubRegion;
